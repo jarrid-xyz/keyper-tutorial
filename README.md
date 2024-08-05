@@ -7,25 +7,28 @@ Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial! This guide will wa
 [Keyper](https://jarrid.xyz/keyper) by [Jarrid](https://jarrid.xyz) is a suite of crypto key management APIs designed to simplify key creation, management, deployment, and encryption/decryption in a standardized and secure way. Operations are file-based and can be easily automated, tracked, audited, and managed via file-based processes such as GitOps. Fully integrated with cloud KMS services such as AWS KMS or GCP KMS, Keyper leverages managed crypto key generation and reduces infrastructure maintenance burden.
 
 ## Table of Contents
+
 - [Keyper Tutorial](#keyper-tutorial)
-  - [Introduction](#introduction)
-  - [Table of Contents](#table-of-contents)
-  - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
-    - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
-    - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
-    - [Encryption Key and Access Management](#encryption-key-and-access-management)
-  - [Tutorial](#tutorial)
-    - [1-pull-keyper-docker-image](#1-pull-keyper-docker-image)
-    - [2-create-app-configuration-and-credentials](#2-create-app-configuration-and-credentials)
-    - [3-create-deployment-role-and-key](#3-create-deployment-role-and-key)
-    - [4-deploy-via-terraform](#4-deploy-via-terraform)
-    - [5-encrypt-decrypt](#5-encrypt-decrypt)
-    - [6-use-cases](#6-use-cases)
-  - [Let's Get Started](#lets-get-started)
+   - [Introduction](#introduction)
+   - [Table of Contents](#table-of-contents)
+   - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
+      - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
+      - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
+      - [Encryption Key and Access Management](#encryption-key-and-access-management)
+
+   - [Tutorial](#tutorial)
+      - [1-pull-keyper-docker-image](#1-pull-keyper-docker-image)
+      - [2-create-app-configuration-and-credentials](#2-create-app-configuration-and-credentials)
+      - [3-create-deployment-role-and-key](#3-create-deployment-role-and-key)
+      - [4-deploy-via-terraform](#4-deploy-via-terraform)
+      - [5-encrypt-decrypt](#5-encrypt-decrypt)
+      - [6-use-cases](#6-use-cases)
+
+   - [Let's Get Started](#lets-get-started)
 
 ## Data Security and Encryption Use Cases
 
-Here are some practical data security and encryption use cases we will cover in this tutorial, showcasing how simple it is to implement them with [Keyper](https://jarrid.xyz/keyper):
+Here are some practical data security and encryption use cases we will cover in this tutorial, showcasing how simple it is to implement them with [Keyper](https://jarrid.xyz/keyper).
 
 ### Whole File Encryption on Cloud Storage
 
@@ -63,7 +66,7 @@ Create the deployment, role, and encryption key, and use [Keyper](https://jarrid
 
 ### 4-deploy-via-terraform
 
-Deploy the infrastructure using [Terraform](https://developer.hashicorp.com/terraform). [Bonus] You can easily integrate [Terraform](https://developer.hashicorp.com/terraform) into your existing CI/CD process. 
+Deploy the infrastructure using [Terraform](https://developer.hashicorp.com/terraform). [Bonus] You can easily integrate [Terraform](https://developer.hashicorp.com/terraform) into your existing CI/CD process.
 
 ➡️ [Go to Tutorial](4-deploy-via-terraform/README.md)
 
@@ -83,4 +86,4 @@ Combine steps 1-5, we'll show you how you can handle some of the most common dat
 
 ## Let's Get Started
 
-Without further a due. Let's get started with the first step: ➡️ [Pulling the Keyper Docker Image](1-pull-keyper-docker-image/README.md)
+Without further ado, let's get started with the first step: ➡️ [Pulling the Keyper Docker Image](1-pull-keyper-docker-image/README.md)
