@@ -6,7 +6,7 @@
   "tasks": {
     "docker pull keyper": {
       "name": "docker pull keyper",
-      "command": "ghcr.io/jarrid-xyz/keyper:v0.0.1",
+      "command": "docker pull ghcr.io/jarrid-xyz/keyper:v0.0.1",
     }
   }
 }
