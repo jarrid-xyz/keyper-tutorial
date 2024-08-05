@@ -1,12 +1,15 @@
 {
   // These tasks will run in order when initializing your CodeSandbox project.
   "setupTasks": [],
-
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
     "docker pull keyper": {
       "name": "docker pull keyper",
       "command": "docker pull ghcr.io/jarrid-xyz/keyper:v0.0.1"
+    },
+    "docker run keyper -h": {
+      "name": "docker run keyper -h",
+      "command": "docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:v0.0.1 -h"
     }
   }
 }
