@@ -13,7 +13,7 @@ First, let's give [Keyper](https://jarrid.xyz/keyper) a try:
 docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper -h
 ```
 
-You can also ping to specific version from [here](https://github.com/jarrid-xyz/keyper/pkgs/container/keyper) by setting:
+You can also ping to specific version from [here](https://github.com/jarrid-xyz/keyper/releases) by setting:
 
 ```bash {"id":"01J4HYM947A89T60MBYH9F3FSY"}
 export KEYPER_VERSION=[Enter Keyper Version]
@@ -21,6 +21,8 @@ docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION
 ```
 
 If you can execute this successfully, [Keyper](https://jarrid.xyz/keyper) is ready for you to use.
+
+Now, let’s proceed to the next tutorial: ➡️ [Create App Configuration and Credentials](../2-create-app-configuration-and-credentials/README.md)
 
 ## Bonus
 
@@ -36,4 +38,8 @@ docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION
 
 ```bash {"id":"01J4HYVM8E6RF3MGJYWKVBCCYX"}
 docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} data -h
+```
+
+```bash {"id":"01J4K462M129B62FKB14RWWVYD"}
+
 ```
