@@ -10,6 +10,13 @@
 		"ghcr.io/devcontainers-contrib/features/tfcdk-cli:1": {},
 		"ghcr.io/devcontainers/features/python:1": {},
 		"ghcr.io/stateful/devcontainer-features/runme:0": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"stateful.runme"
+			]
+		}
 	}
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

@@ -47,7 +47,7 @@ tar -xf google-cloud-cli-linux-x86_64.tar.gz
 ./google-cloud-sdk/bin/gcloud init
 ```
 
-Once the gcloud CLI is installed, log in to your GCP account.
+Once the gcloud cli is installed, log in to your GCP account.
 
 ```bash {"id":"01J4J3FS02SNFP0W2EW4EB64HF"}
 gcloud auth login
@@ -89,18 +89,18 @@ gcloud iam service-accounts keys create .cdktf-sa-key.json \
   --iam-account "keyper-cdktf-sa@$PROJECT_ID.iam.gserviceaccount.com"
 ```
 
-Next, Let's create a project directory to store configuration and GCP key.
+Let's create a `keyper` directory to store configuration and GCP key.
 
 ```bash {"cwd":"","id":"01J4JACH1F1EDNC1TF04PGJF4A"}
 mkdir -p ../keyper
-cp .cdktf-sa-key.json ../keyper
-touch ../keyper/app.local.yaml
 ```
 
 Now, we are ready to create the configuration override in `app.local.yaml`. Open the `app.local.yaml` file:
 
-```bash {"id":"01J4JATDZJE3TB0RSHTQ2MCXD2"}
-code ../keyper/app.local.yaml
+```bash {"cwd":"../keyper","id":"01J4JATDZJE3TB0RSHTQ2MCXD2"}
+cp ../2-create-app-configuration-and-credentials/.cdktf-sa-key.json ./
+touch ./app.local.yaml
+code ./app.local.yaml
 ```
 
 Add the following to the `app.local.yaml`. __Remember to update `<PROJECT_ID>` accordingly.__
