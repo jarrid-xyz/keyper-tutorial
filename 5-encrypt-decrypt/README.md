@@ -12,14 +12,12 @@ The easiest way to get the encryptor and decryptor service account email we've c
 gcloud iam service-accounts list | grep cryptor
 ```
 
-Copy the encryptor service account email to login.
+Create credentials.json for encryptor service account.
 
-```sh {"id":"01J4NDKKTH2FV3T509BRW8TR5M"}
-export ENCRYPTOR_SERVICE_ACCT_EMAIL=[Encryptor Service Account Email]
-gcloud auth application-default login --impersonate-service-account=$ENCRYPTOR_SERVICE_ACCT_EMAIL
-
-# give read permission to the credentials.json
-chmod 644 $HOME/.config/gcloud/application_default_credentials.json
+```sh {"cwd":"../keyper","id":"01J4NDKKTH2FV3T509BRW8TR5M"}
+export ENCRYPTOR_SERVICE_ACCOUNT_EMAIL=[Encryptor Service Account Email]
+gcloud iam service-accounts keys create ./encryptor-sa-key.json \
+    --iam-account=$ENCRYPTOR_SERVICE_ACCOUNT_EMAIL
 ```
 
 ```sh {"cwd":"../keyper","id":"01J4MXYXBCN2N9V13T17FZ9P95"}
@@ -27,12 +25,35 @@ export TOP_SECRET=[Top Secret]
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
-    -v $HOME/.config/gcloud/application_default_credentials.json:/home/keryper/credentials.json \
+    -v ./encryptor-sa-key.json:/home/keryper/credentials.json \
     -e GOOGLE_APPLICATION_CREDENTIALS=/home/keryper/credentials.json \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
     data encrypt -k $KEY_ID --plaintext $TOP_SECRET
 ```
 
-```sh {"id":"01J4NEKNDBW6C1CVJ2PFBQAYZM"}
+## Decrypt
 
+With the encrypted value, let's decrypt it with decryptor service account.
+
+```sh {"cwd":"../keyper","id":"01J4NN4K0FBSJSFCJF4R11SK5Y"}
+export DECRYPTOR_SERVICE_ACCOUNT_EMAIL=[Decryptor Service Account Email]
+gcloud iam service-accounts keys create ./decryptor-sa-key.json \
+    --iam-account=$DECRYPTOR_SERVICE_ACCOUNT_EMAIL
 ```
+
+Now, take the encrypted value and let's decrypt it.
+
+```sh {"cwd":"../keyper","id":"01J4NN9DM4BKD4Q0A7N29AJHJF"}
+export CIPHERTEXT=[Ciphertext]
+docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    -v ./decryptor-sa-key.json:/home/keryper/credentials.json \
+    -e GOOGLE_APPLICATION_CREDENTIALS=/home/keryper/credentials.json \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    data decrypt -k $KEY_ID --ciphertext $CIPHERTEXT
+```
+
+You should now see your top secret being decrypted. And that's it, you have successfully encrypt and decrypt value with encryptor and decryptor service account successully.
+
+
