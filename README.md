@@ -23,6 +23,7 @@ Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial! This guide will wa
     - [5. Encrypt/Decrypt](#5-encryptdecrypt)
     - [6. Use Cases](#6-use-cases)
   - [Let's Get Started](#lets-get-started)
+  - [Questions and Feedback](#questions-and-feedback)
 
 ## Data Security and Encryption Use Cases
 
@@ -85,3 +86,11 @@ Combine steps 1-5, we'll show you how you can handle some of the most common dat
 ## Let's Get Started
 
 Without further ado, let's get started with the first step: ➡️ [Pulling the Keyper Docker Image](1-pull-keyper-docker-image/README.md)
+
+## Questions and Feedback
+
+Thank you for following along with this tutorial series. If you have any questions, feel free to:
+
+- [Reach out to us at Jarrid](https://jarrid.xyz/#contact)
+- [Ask questions on our discussion board](https://github.com/orgs/jarrid-xyz/discussions)
+- [We'd also really appreciate it if you could spend 30 seconds taking a short survey to help us improve.](https://tally.so/r/wMLEA8)
