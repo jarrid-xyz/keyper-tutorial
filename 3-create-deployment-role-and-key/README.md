@@ -2,7 +2,7 @@
 
 In this step, we will use [Keyper](https://jarrid.xyz/keyper) to create a new deployment, then create a new role, and finally create a new key within the deployment.
 
-In the `keyper` directory, we previously created our configuration and credentials. The Docker command will mount the `configs` and `cdktf.out` directories so the configuration can be persisted outside of Docker. We will also mount the GCP key and app configuration we created earlier.
+In the `keyper` directory, we previously created our configuration and credentials. The Docker command will mount the `configs` so the configuration can be persisted outside of Docker. We will also mount the app configuration we created earlier.
 
 ## Create Deployment
 
@@ -13,8 +13,6 @@ In order to deploy a set of resources, we need to create a [Keyper](https://jarr
 
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
-    -v ./cdktf.out:/home/keyper/cdktf.out \
-    -v ./.cdktf-sa-key.json:/home/keyper/gcp.json \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
     resource create -t deployment
@@ -31,8 +29,6 @@ Alternatively, you can use `resource list` to see existing deployments.
 ```sh {"cwd":"../keyper","id":"01J4K5FHFS8NPFXG782T31MPY1"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
-    -v ./cdktf.out:/home/keyper/cdktf.out \
-    -v ./.cdktf-sa-key.json:/home/keyper/gcp.json \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
     resource list -t deployment
@@ -52,8 +48,6 @@ Let's create two roles: encryptor and decryptor.
 ```sh {"cwd":"../keyper","id":"01J4K4VRSJYASFWRJ15FFNEFR4"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
-    -v ./cdktf.out:/home/keyper/cdktf.out \
-    -v ./.cdktf-sa-key.json:/home/keyper/gcp.json \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
     resource create -t role -n encryptor
@@ -62,8 +56,6 @@ docker run -it --rm --name keyper-cli \
 ```sh {"cwd":"../keyper","id":"01J4K5VA70W20W3XGR04RNM7V3"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
-    -v ./cdktf.out:/home/keyper/cdktf.out \
-    -v ./.cdktf-sa-key.json:/home/keyper/gcp.json \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
     resource create -t role -n decryptor
@@ -82,16 +74,33 @@ cat configs/$KEYPER_DEPLOYMENT_ID/role/$ROLE_ID.json | python -m json.tool
 
 ## Create Key
 
-Lastly, let's create an encryption key. We will use this key later on to encrypt and decrypt data value.
+Let's create an encryption key. We will use this key later on to encrypt and decrypt data value.
 
 ```sh {"cwd":"../keyper","id":"01J4K64HYDXBF329NDFRJT19GE"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
-    -v ./cdktf.out:/home/keyper/cdktf.out \
-    -v ./.cdktf-sa-key.json:/home/keyper/gcp.json \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
     resource create -t key
 ```
 
-Now, let’s proceed to the next tutorial: ➡️ [Deploy via Terraform](../4-deploy-via-terraform/README.md)
+## Configure Key
+
+Lastly, let's give encryptor role permission to encrypt with the key and decryptor role pemirssion to decrypt with the key.
+
+```sh {"cwd":"../keyper","id":"01J4NECX89Z07V6HDXDXFTBWPS"}
+export KEY_ID=[Key Id]
+docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    resource key -k $KEY_ID -o ADD_ALLOW_ENCRYPT -r encryptor
+
+docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    resource key -k $KEY_ID -o ADD_ALLOW_DECRYPT -r decryptor
+```
+
+Now, let’s go to the next tutorial: ➡️ [Deploy via Terraform](../4-deploy-via-terraform/README.md)

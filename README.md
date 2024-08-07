@@ -1,6 +1,6 @@
 # Keyper Tutorial
 
-Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial! This guide will walk you through setting up and using [Keyper](https://jarrid.xyz/keyper/) for various use cases.
+Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial! This guide will walk you through setting up and using [Keyper](https://jarrid.xyz/keyper/) to easily do whole file encryption or data value encryption in the [use cases](#data-security-and-encryption-use-cases).
 
 ## Introduction
 
@@ -9,22 +9,20 @@ Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial! This guide will wa
 ## Table of Contents
 
 - [Keyper Tutorial](#keyper-tutorial)
-   - [Introduction](#introduction)
-   - [Table of Contents](#table-of-contents)
-   - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
-      - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
-      - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
-      - [Encryption Key and Access Management](#encryption-key-and-access-management)
-
-   - [Tutorial](#tutorial)
-      - [1-pull-keyper-docker-image](#1-pull-keyper-docker-image)
-      - [2-create-app-configuration-and-credentials](#2-create-app-configuration-and-credentials)
-      - [3-create-deployment-role-and-key](#3-create-deployment-role-and-key)
-      - [4-deploy-via-terraform](#4-deploy-via-terraform)
-      - [5-encrypt-decrypt](#5-encrypt-decrypt)
-      - [6-use-cases](#6-use-cases)
-
-   - [Let's Get Started](#lets-get-started)
+  - [Introduction](#introduction)
+  - [Table of Contents](#table-of-contents)
+  - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
+    - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
+    - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
+    - [Encryption Key and Access Management](#encryption-key-and-access-management)
+  - [Tutorial](#tutorial)
+    - [1. Pull Keyper Docker Image](#1-pull-keyper-docker-image)
+    - [2. Create App Configuration And Credentials](#2-create-app-configuration-and-credentials)
+    - [3. Create Deployment, Role and Key](#3-create-deployment-role-and-key)
+    - [4. Deploy via Terraform](#4-deploy-via-terraform)
+    - [5. Encrypt/Decrypt](#5-encryptdecrypt)
+    - [6. Use Cases](#6-use-cases)
+  - [Let's Get Started](#lets-get-started)
 
 ## Data Security and Encryption Use Cases
 
@@ -46,37 +44,37 @@ This tutorial will show you how to use encryption keys to simplify access contro
 
 The tutorial is organized into several directories, each containing a README.md file with example commands and explanations. Commands are executable on [CodeSandbox](https://codesandbox.io/p/devbox/competent-keller-z73fkv), where we've already pre-configured the environment for you.
 
-### 1-pull-keyper-docker-image
+### 1. Pull Keyper Docker Image
 
 Set up the Docker environment to get started with [Keyper](https://jarrid.xyz/keyper).
 
 ➡️ [Go to Tutorial](1-pull-keyper-docker-image/README.md)
 
-### 2-create-app-configuration-and-credentials
+### 2. Create App Configuration And Credentials
 
 Create the necessary application configuration and credentials for [Keyper](https://jarrid.xyz/keyper).
 
 ➡️ [Go to Tutorial](2-create-app-configuration-and-credentials/README.md)
 
-### 3-create-deployment-role-and-key
+### 3. Create Deployment, Role and Key
 
 Create the deployment, role, and encryption key, and use [Keyper](https://jarrid.xyz/keyper) to manage these resources.
 
 ➡️ [Go to Tutorial](3-create-deployment-role-and-key/README.md)
 
-### 4-deploy-via-terraform
+### 4. Deploy via Terraform
 
 Deploy the infrastructure using [Terraform](https://developer.hashicorp.com/terraform). [Bonus] You can easily integrate [Terraform](https://developer.hashicorp.com/terraform) into your existing CI/CD process.
 
 ➡️ [Go to Tutorial](4-deploy-via-terraform/README.md)
 
-### 5-encrypt-decrypt
+### 5. Encrypt/Decrypt
 
 Perform encryption and decryption operations with [Keyper](https://jarrid.xyz/keyper) to secure sensitive information.
 
 ➡️ [Go to Tutorial](5-encrypt-decrypt/README.md)
 
-### 6-use-cases
+### 6. Use Cases
 
 Combine steps 1-5, we'll show you how you can handle some of the most common data security and encryption use cases with [Keyper](https://jarrid.xyz/keyper):
 

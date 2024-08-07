@@ -11,6 +11,9 @@
 		"ghcr.io/devcontainers/features/python:1": {},
 		"ghcr.io/stateful/devcontainer-features/runme:0": {}
 	},
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [

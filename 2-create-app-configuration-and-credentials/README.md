@@ -112,7 +112,7 @@ provider:
   gcp:
     accountId: <PROJECT_ID>
     region: us-east1
-    credentials: .cdktf-sa-key.json
+    credentials: /home/keyper/.cdktf-sa-key.json
     backend:
       type: cloud
 resource:
@@ -135,4 +135,4 @@ resource:
     path: configs
 ```
 
-Now, let’s proceed to the next tutorial: ➡️ [Create Deployment, Role and Key](../3-create-deployment-role-and-key/README.md)
+Now, let’s go to the next tutorial: ➡️ [Create Deployment, Role and Key](../3-create-deployment-role-and-key/README.md)

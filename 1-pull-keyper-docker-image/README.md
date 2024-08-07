@@ -22,7 +22,7 @@ docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION
 
 If you can execute this successfully, [Keyper](https://jarrid.xyz/keyper) is ready for you to use.
 
-Now, let’s proceed to the next tutorial: ➡️ [Create App Configuration and Credentials](../2-create-app-configuration-and-credentials/README.md)
+Now, let’s go to the next tutorial: ➡️ [Create App Configuration and Credentials](../2-create-app-configuration-and-credentials/README.md)
 
 ## Bonus
 
