@@ -1,15 +1,27 @@
 # Keyper Tutorial
 
-Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial! This guide will walk you through setting up and using [Keyper](https://jarrid.xyz/keyper/) to easily do whole file encryption or data value encryption in the [use cases](#data-security-and-encryption-use-cases).
+👋 Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial!
+
+This is a self-paced tutorial walking you through how to use [Keyper](https://jarrid.xyz/keyper/) to handle some of the most common tasks in data security and encryption such as whole file encryption or data value encryption. The tutorial is fully set up in [Github Codespaces](https://github.com/codespaces) and we've already installed all the required dependency for you. That said, you can also clone the [keyper-tutorial](https://github.com/jarrid-xyz/keyper-tutorial) and run it locally.
 
 ## Introduction
 
 [Keyper](https://jarrid.xyz/keyper) by [Jarrid](https://jarrid.xyz) is a suite of crypto key management APIs designed to simplify key creation, management, deployment, and encryption/decryption in a standardized and secure way. Operations are file-based and can be easily automated, tracked, audited, and managed via file-based processes such as GitOps. Fully integrated with cloud KMS services such as AWS KMS or GCP KMS, Keyper leverages managed crypto key generation and reduces the infrastructure maintenance burden.
 
+## Questions and Feedback
+
+Throughout the tutorial, if you have any questions, here are a couple places you can reach out for help:
+
+- [Reach out to us at Jarrid](https://jarrid.xyz/#contact)
+- [Ask questions on our discussion board](https://github.com/orgs/jarrid-xyz/discussions)
+
+If you have any feedback throughout the tutorial or at the end, we'd also very appreciate it if you could spend 30 seconds [taking a short survey to help us improve.](https://tally.so/r/wMLEA8)
+
 ## Table of Contents
 
 - [Keyper Tutorial](#keyper-tutorial)
   - [Introduction](#introduction)
+  - [Questions and Feedback](#questions-and-feedback)
   - [Table of Contents](#table-of-contents)
   - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
     - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
@@ -23,7 +35,6 @@ Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial! This guide will wa
     - [5. Encrypt/Decrypt](#5-encryptdecrypt)
     - [6. Use Cases](#6-use-cases)
   - [Let's Get Started](#lets-get-started)
-  - [Questions and Feedback](#questions-and-feedback)
 
 ## Data Security and Encryption Use Cases
 
@@ -86,11 +97,3 @@ Combine steps 1-5, we'll show you how you can handle some of the most common dat
 ## Let's Get Started
 
 Without further ado, let's get started with the first step: ➡️ [Pulling the Keyper Docker Image](1-pull-keyper-docker-image/README.md)
-
-## Questions and Feedback
-
-Thank you for following along with this tutorial series. If you have any questions, feel free to:
-
-- [Reach out to us at Jarrid](https://jarrid.xyz/#contact)
-- [Ask questions on our discussion board](https://github.com/orgs/jarrid-xyz/discussions)
-- [We'd also really appreciate it if you could spend 30 seconds taking a short survey to help us improve.](https://tally.so/r/wMLEA8)

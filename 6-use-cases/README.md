@@ -23,6 +23,8 @@ Simplifying access control across data platforms and infrastructure is critical 
 
 You are now able to handle various practical data security and encryption challenges. [Keyper](https://jarrid.xyz/keyper) provides the tools to implement robust security measures, ensuring your data remains protected and compliant with industry standards.
 
+## Questions and Feedback
+
 Thank you for following along with this tutorial series. If you have any questions, feel free to:
 
 - [Reach out to us at Jarrid](https://jarrid.xyz/#contact)
