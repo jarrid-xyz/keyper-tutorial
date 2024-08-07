@@ -25,7 +25,7 @@ Here's an example of the cloud provider configuration in `app.yaml`:
 ```yaml {"id":"01J4J3FS02SNFP0W2EW2NEDMH2"}
 provider:
   gcp:
-    accountId: <project-id>
+    accountId: <PROJECT_ID>
     region: global|us-east1
     credentials: <>
     backend:
@@ -53,7 +53,7 @@ Once the gcloud cli is installed, log in to your GCP account.
 gcloud auth login
 ```
 
-Set the GCP project-id to your project for this tutorial.
+Set the GCP PROJECT_ID to your project for this tutorial.
 
 ```bash {"id":"01J4J8ADDJBKB0F6WD08DCP0J4"}
 export PROJECT_ID=[GCP Project Id]

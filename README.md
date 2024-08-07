@@ -4,7 +4,7 @@ Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial! This guide will wa
 
 ## Introduction
 
-[Keyper](https://jarrid.xyz/keyper) by [Jarrid](https://jarrid.xyz) is a suite of crypto key management APIs designed to simplify key creation, management, deployment, and encryption/decryption in a standardized and secure way. Operations are file-based and can be easily automated, tracked, audited, and managed via file-based processes such as GitOps. Fully integrated with cloud KMS services such as AWS KMS or GCP KMS, Keyper leverages managed crypto key generation and reduces infrastructure maintenance burden.
+[Keyper](https://jarrid.xyz/keyper) by [Jarrid](https://jarrid.xyz) is a suite of crypto key management APIs designed to simplify key creation, management, deployment, and encryption/decryption in a standardized and secure way. Operations are file-based and can be easily automated, tracked, audited, and managed via file-based processes such as GitOps. Fully integrated with cloud KMS services such as AWS KMS or GCP KMS, Keyper leverages managed crypto key generation and reduces the infrastructure maintenance burden.
 
 ## Table of Contents
 

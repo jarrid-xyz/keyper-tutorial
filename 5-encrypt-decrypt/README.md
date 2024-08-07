@@ -1,18 +1,18 @@
 # 5. Encrypt/Decrypt
 
-In this step, let's use the roles and keys we created earlier and encrypt and decrypt data.
+In this step, let's use the roles and keys we created earlier to encrypt and decrypt data.
 
 ## Encrypt
 
-First let's encrypt a value. In step 3, we've created an encryptor role, let's impersonate that role. [Read more on how to impersonate a gcp service account here](https://cloud.google.com/docs/authentication/use-service-account-impersonation#adc).
+First, let's encrypt a value. In Step 3, we created an encryptor role. We'll impersonate that role to perform the encryption.
 
-The easiest way to get the encryptor and decryptor service account email we've created earlier is by:
+To get the encryptor and decryptor service account emails, run:
 
 ```sh {"id":"01J4NDP1WEQHH3EVT7F07407Q3"}
 gcloud iam service-accounts list | grep cryptor
 ```
 
-Create credentials.json for encryptor service account.
+Create `credentials.json` for encryptor service account.
 
 ```sh {"cwd":"../keyper","id":"01J4NDKKTH2FV3T509BRW8TR5M"}
 export ENCRYPTOR_SERVICE_ACCOUNT_EMAIL=[Encryptor Service Account Email]
@@ -33,7 +33,7 @@ docker run -it --rm --name keyper-cli \
 
 ## Decrypt
 
-With the encrypted value, let's decrypt it with decryptor service account.
+Now, let’s decrypt the encrypted value using the decryptor service account.
 
 ```sh {"cwd":"../keyper","id":"01J4NN4K0FBSJSFCJF4R11SK5Y"}
 export DECRYPTOR_SERVICE_ACCOUNT_EMAIL=[Decryptor Service Account Email]
@@ -41,7 +41,7 @@ gcloud iam service-accounts keys create ./decryptor-sa-key.json \
     --iam-account=$DECRYPTOR_SERVICE_ACCOUNT_EMAIL
 ```
 
-Now, take the encrypted value and let's decrypt it.
+Now, take the encrypted value and decrypt it.
 
 ```sh {"cwd":"../keyper","id":"01J4NN9DM4BKD4Q0A7N29AJHJF"}
 export CIPHERTEXT=[Ciphertext]
@@ -54,6 +54,6 @@ docker run -it --rm --name keyper-cli \
     data decrypt -k $KEY_ID --ciphertext $CIPHERTEXT
 ```
 
-You should now see your top secret being decrypted. And that's it, you have successfully encrypt and decrypt value with encryptor and decryptor service account successully.
+You should now see your top secret being decrypted. That’s it! You have successfully encrypted and decrypted a value using the encryptor and decryptor service accounts.
 
-
+➡️ Go to [Use Cases](../6-use-cases/README.md)

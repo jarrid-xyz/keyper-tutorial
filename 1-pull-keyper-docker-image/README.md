@@ -26,7 +26,7 @@ Now, let’s go to the next tutorial: ➡️ [Create App Configuration and Crede
 
 ## Bonus
 
-Explore various [Keyper](https://jarrid.xyz/keyper) commands:
+Explore other [Keyper](https://jarrid.xyz/keyper) commands:
 
 ```bash {"id":"01J4HYQ4ZT0ETJHSRQT166EJEX"}
 docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} resource -h
