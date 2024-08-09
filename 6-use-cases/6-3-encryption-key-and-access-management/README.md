@@ -1,5 +1,5 @@
 # 6-3. Encryption Key and Access Management
 
-WIP
+[WIP]
 
 ➡️ [Back to Use Cases](../README.md)

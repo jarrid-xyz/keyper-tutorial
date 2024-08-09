@@ -20,13 +20,12 @@ Simplifying access control across data platforms and infrastructure is critical 
 
 ➡️ [Go to Encryption Key and Access Management Tutorial](6-3-encryption-key-and-access-management/README.md)
 
-
 You are now able to handle various practical data security and encryption challenges. [Keyper](https://jarrid.xyz/keyper) provides the tools to implement robust security measures, ensuring your data remains protected and compliant with industry standards.
 
 ## Questions and Feedback
 
 Thank you for following along with this tutorial series. If you have any questions, feel free to:
 
-- [Reach out to us at Jarrid](https://jarrid.xyz/#contact)
-- [Ask questions on our discussion board](https://github.com/orgs/jarrid-xyz/discussions)
-- [We'd also really appreciate it if you could spend 30 seconds taking a short survey to help us improve.](https://tally.so/r/wMLEA8)
+- [Reach out to us at Jarrid.](https://jarrid.xyz/#contact)
+- [Ask questions on our discussion board.](https://github.com/orgs/jarrid-xyz/discussions)
+- [Let us know if this was helpful to you?](https://tally.so/r/wMLEA8)

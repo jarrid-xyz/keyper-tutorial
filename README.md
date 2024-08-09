@@ -12,29 +12,32 @@ This is a self-paced tutorial walking you through how to use [Keyper](https://ja
 
 Throughout the tutorial, if you have any questions, here are a couple places you can reach out for help:
 
-- [Reach out to us at Jarrid](https://jarrid.xyz/#contact)
-- [Ask questions on our discussion board](https://github.com/orgs/jarrid-xyz/discussions)
+- [Reach out to us at Jarrid.](https://jarrid.xyz/#contact)
+- [Ask questions on our discussion board.](https://github.com/orgs/jarrid-xyz/discussions)
+- [Let us if you liked the tutorial and anything you'd like to see.](https://tally.so/r/wMLEA8)
 
 If you have any feedback throughout the tutorial or at the end, we'd also very appreciate it if you could spend 30 seconds [taking a short survey to help us improve.](https://tally.so/r/wMLEA8)
 
 ## Table of Contents
 
 - [Keyper Tutorial](#keyper-tutorial)
-  - [Introduction](#introduction)
-  - [Questions and Feedback](#questions-and-feedback)
-  - [Table of Contents](#table-of-contents)
-  - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
-    - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
-    - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
-    - [Encryption Key and Access Management](#encryption-key-and-access-management)
-  - [Tutorial](#tutorial)
-    - [1. Pull Keyper Docker Image](#1-pull-keyper-docker-image)
-    - [2. Create App Configuration And Credentials](#2-create-app-configuration-and-credentials)
-    - [3. Create Deployment, Role and Key](#3-create-deployment-role-and-key)
-    - [4. Deploy via Terraform](#4-deploy-via-terraform)
-    - [5. Encrypt/Decrypt](#5-encryptdecrypt)
-    - [6. Use Cases](#6-use-cases)
-  - [Let's Get Started](#lets-get-started)
+   - [Introduction](#introduction)
+   - [Questions and Feedback](#questions-and-feedback)
+   - [Table of Contents](#table-of-contents)
+   - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
+      - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
+      - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
+      - [Encryption Key and Access Management](#encryption-key-and-access-management)
+
+   - [Tutorial](#tutorial)
+      - [1. Pull Keyper Docker Image](#1-pull-keyper-docker-image)
+      - [2. Create App Configuration And Credentials](#2-create-app-configuration-and-credentials)
+      - [3. Create Deployment, Role and Key](#3-create-deployment-role-and-key)
+      - [4. Deploy via Terraform](#4-deploy-via-terraform)
+      - [5. Encrypt/Decrypt](#5-encryptdecrypt)
+      - [6. Use Cases](#6-use-cases)
+
+   - [Let's Get Started](#lets-get-started)
 
 ## Data Security and Encryption Use Cases
 

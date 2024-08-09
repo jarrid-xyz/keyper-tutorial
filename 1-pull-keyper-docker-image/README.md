@@ -37,5 +37,9 @@ docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION
 ```
 
 ```bash {"id":"01J4HYVM8E6RF3MGJYWKVBCCYX"}
-docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} data -h
+docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} data encrypt -h
+```
+
+```bash {"id":"01J4TN5089MQCN4D8RFZXZN504"}
+
 ```
