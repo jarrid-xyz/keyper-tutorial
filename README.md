@@ -18,26 +18,35 @@ Throughout the tutorial, if you have any questions, here are a couple places you
 
 If you have any feedback throughout the tutorial or at the end, we'd also very appreciate it if you could spend 30 seconds [taking a short survey to help us improve.](https://tally.so/r/wMLEA8)
 
+## Getting Started
+
+There are two ways to run this tutorial. This repo is set up to be run in [Visual Studio Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) with the [Runme](https://runme.dev/) extension.
+
+1. Create your own devcontainer and [Runme extensions](https://runme.dev/) will be pre-installed by clicking `Code > Codespaces > Create codespace on main` and either run this in the cloud or on your local VS Code.
+![](codespaces.gif)
+
+Alternatively, you can also clone this repository and [install the Runme extension](https://docs.runme.dev/installation/installrunme). Note that this might require you to install additional dependencies if you don't already have them installed on your local.
+
+Without further ado, let's get started with the first step: ➡️ [Pulling the Keyper Docker Image](1-pull-keyper-docker-image/README.md)
+
 ## Table of Contents
 
 - [Keyper Tutorial](#keyper-tutorial)
-   - [Introduction](#introduction)
-   - [Questions and Feedback](#questions-and-feedback)
-   - [Table of Contents](#table-of-contents)
-   - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
-      - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
-      - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
-      - [Encryption Key and Access Management](#encryption-key-and-access-management)
-
-   - [Tutorial](#tutorial)
-      - [1. Pull Keyper Docker Image](#1-pull-keyper-docker-image)
-      - [2. Create App Configuration And Credentials](#2-create-app-configuration-and-credentials)
-      - [3. Create Deployment, Role and Key](#3-create-deployment-role-and-key)
-      - [4. Deploy via Terraform](#4-deploy-via-terraform)
-      - [5. Encrypt/Decrypt](#5-encryptdecrypt)
-      - [6. Use Cases](#6-use-cases)
-
-   - [Let's Get Started](#lets-get-started)
+  - [Introduction](#introduction)
+  - [Questions and Feedback](#questions-and-feedback)
+  - [Getting Started](#getting-started)
+  - [Table of Contents](#table-of-contents)
+  - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
+    - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
+    - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
+    - [Encryption Key and Access Management](#encryption-key-and-access-management)
+  - [Tutorial](#tutorial)
+    - [1. Pull Keyper Docker Image](#1-pull-keyper-docker-image)
+    - [2. Create App Configuration And Credentials](#2-create-app-configuration-and-credentials)
+    - [3. Create Deployment, Role and Key](#3-create-deployment-role-and-key)
+    - [4. Deploy via Terraform](#4-deploy-via-terraform)
+    - [5. Encrypt/Decrypt](#5-encryptdecrypt)
+    - [6. Use Cases](#6-use-cases)
 
 ## Data Security and Encryption Use Cases
 
@@ -96,7 +105,3 @@ Combine steps 1-5, we'll show you how you can handle some of the most common dat
 - **Whole File Encryption on Cloud Storage**: ➡️ [Go to Tutorial](6-use-cases/6-1-whole-file-encryption-on-cloud-storage/README.md)
 - **Sensitive Data Value Encryption**: ➡️ [Go to Tutorial](6-use-cases/6-2-sensitive-data-value-encryption/README.md)
 - **Encryption Key and Access Management**: ➡️ [Go to Tutorial](6-use-cases/6-3-encryption-key-and-access-management/README.md)
-
-## Let's Get Started
-
-Without further ado, let's get started with the first step: ➡️ [Pulling the Keyper Docker Image](1-pull-keyper-docker-image/README.md)
