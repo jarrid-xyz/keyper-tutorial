@@ -22,10 +22,19 @@ If you have any feedback throughout the tutorial or at the end, we'd also very a
 
 There are two ways to run this tutorial. This repo is set up to be run in [Visual Studio Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) with the [Runme](https://runme.dev/) extension.
 
-1. Create your own devcontainer and [Runme extensions](https://runme.dev/) will be pre-installed by clicking `Code > Codespaces > Create codespace on main` and either run this in the cloud or on your local VS Code.
-![](codespaces.gif)
+Run this in vscode with our templated devcontainer configuration. [Runme extensions](https://runme.dev/) and [Terraform](https://www.terraform.io/) will be pre-installed. You can do so by
+  
+```
+git clone git@github.com:jarrid-xyz/keyper-tutorial.git
+code keyper-tutorial
+```
 
-Alternatively, you can also clone this repository and [install the Runme extension](https://docs.runme.dev/installation/installrunme). Note that this might require you to install additional dependencies if you don't already have them installed on your local.
+You will be prompted to open the folder in devcontainer, make sure you select `Reopen in Container`.
+
+![](devcontainer.png)
+
+
+Alternatively, you can clone this repository and [install the Runme extension](https://docs.runme.dev/installation/installrunme) separately. Note that this might require you to install additional dependencies if you don't already have them installed on your local environment.
 
 Without further ado, let's get started with the first step: ➡️ [Pulling the Keyper Docker Image](1-pull-keyper-docker-image/README.md)
 
