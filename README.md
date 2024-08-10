@@ -2,7 +2,7 @@
 
 👋 Welcome to the [Keyper](https://jarrid.xyz/keyper/) tutorial!
 
-This is a self-paced tutorial walking you through how to use [Keyper](https://jarrid.xyz/keyper/) to handle some of the most common tasks in data security and encryption such as whole file encryption or data value encryption. The tutorial is fully set up in [Github Codespaces](https://github.com/codespaces) and we've already installed all the required dependency for you. That said, you can also clone the [keyper-tutorial](https://github.com/jarrid-xyz/keyper-tutorial) and run it locally.
+This is a self-paced tutorial walking you through how to use [Keyper](https://jarrid.xyz/keyper/) to handle some of the most common tasks in data security and encryption such as whole file encryption or data value encryption. The tutorial is fully set up in [Visual Studio Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) and we've already installed all the required dependency for you. That said, you can also clone the [keyper-tutorial](https://github.com/jarrid-xyz/keyper-tutorial) and run it locally.
 
 ## Introduction
 
@@ -14,7 +14,6 @@ Throughout the tutorial, if you have any questions, here are a couple places you
 
 - [Reach out to us at Jarrid.](https://jarrid.xyz/#contact)
 - [Ask questions on our discussion board.](https://github.com/orgs/jarrid-xyz/discussions)
-- [Let us if you liked the tutorial and anything you'd like to see.](https://tally.so/r/wMLEA8)
 
 If you have any feedback throughout the tutorial or at the end, we'd also very appreciate it if you could spend 30 seconds [taking a short survey to help us improve.](https://tally.so/r/wMLEA8)
 
