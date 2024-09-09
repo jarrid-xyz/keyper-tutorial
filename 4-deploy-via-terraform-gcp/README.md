@@ -1,4 +1,4 @@
-# 4. Deploy via Terraform
+# 4. Deploy via Terraform (GCP)
 
 In the previous step, we've created the resource configuration files in `keyper/configs` directory. [Keyper](https://jarrid.xyz/keyper) leverage [Terraform](https://www.terraform.io/) internally and will provision resources on the cloud provider (GCP in this tutorial) based on the current resource configurations. In the docker command, we will need to mount `cdktf.out` so [Terraform](https://www.terraform.io/) artificat can be persisted outside of docker. We also need to mount the service account creds so [Terraform](https://www.terraform.io/) can provision resources on using the service account.
 
@@ -28,7 +28,7 @@ docker run -it --rm --name keyper-cli \
 
 You've now created the encryptor and decryptor roles and a encryption key.
 
-Now, let’s go to the next tutorial: ➡️ [Encrypt/Decrypt](../5-encrypt-decrypt/README.md)
+Now, let’s go to the next tutorial: ➡️ [Encrypt/Decrypt](../5-encrypt-decrypt-gcp/README.md)
 
 ## Bonus
 

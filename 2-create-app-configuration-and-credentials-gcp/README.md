@@ -1,10 +1,10 @@
-# 2. Create App Configuration and Credentials
+# 2. Create App Configuration and Credentials (GCP)
 
 Now, let's create the necessary application configuration and credentials for [Keyper](https://jarrid.xyz/keyper).
 
 ## Application Configuration
 
-[Keyper](https://jarrid.xyz/keyper) provides a simple interface for modifying resource creation and provisioning behavior using [cdktf](https://developer.hashicorp.com/terraform/cdktf/cli-reference/commands). For more details, go to [Keyper Deployment Configuration](https://jarrid.xyz/keyper/deploy/configuration/). Here, we will cover the required configurations to point Keyper to your cloud provider.
+[Keyper](https://jarrid.xyz/keyper) provides a simple interface for modifying resource creation and provisioning behavior using [cdktf](https://developer.hashicorp.com/terraform/cdktf/cli-reference/commands). For more details, go to [Keyper Deployment GCP](https://jarrid.xyz/keyper/deploy/gcp/). Here, we will cover the required configurations to point Keyper to your cloud provider.
 
 ### Provider
 
@@ -14,11 +14,11 @@ Provider configuration is used by the deploy module.
 
 Specify [cdktf](https://developer.hashicorp.com/terraform/cdktf/cli-reference/commands) execution configurations.
 
-- `stack`: specify the cloud provider. ***Note: this defaults to `gcp` as we currently only support GCP.***
+- `stack`: specify the cloud provider. ***Note: defaults to `gcp`.***
 
 #### Cloud Provider
 
-You can configure cloud providers such as `gcp` or `aws` for resource provisioning. Since we currently only support GCP, we will focus on configuring resource provisioning on GCP here. You can also read more on the [Keyper Deployment Setup GCP page](https://jarrid.xyz/keyper/deploy/gcp/).
+You can configure cloud providers such as `gcp` or `aws` for resource provisioning. For this tutorial, we will be using `gcp`. You can read more on the [Keyper Deployment Setup AWS page](https://jarrid.xyz/keyper/deploy/gcp/).
 
 Here's an example of the cloud provider configuration in `app.yaml`:
 
@@ -34,7 +34,7 @@ provider:
 
 - `accountId`: If you don't already have a google cloud project, follow [GCP's guide to create a project](https://developers.google.com/workspace/guides/create-project). The project id will be `accountId`.
 - `region`: You can specify where you'd like to deploy your resources to, check out the list of available GCP regions and zones [here](https://cloud.google.com/compute/docs/regions-zones#available).
-- `credentials`: [Terraform](https://www.terraform.io/) will need to use a pre-configured GCP service account for resource deployment and remote state backend. See [Keyper Deployment Setup GCP](https://jarrid.xyz/keyper/deploy/gcp/#create-kms-admin-service-account) for more details.
+- `credentials`: [Terraform](https://www.terraform.io/) will need to use a pre-configured GCP service account for resource deployment and remote state backend. See [Keyper Deployment Setup GCP](https://jarrid.xyz/keyper/deploy/gcp/#create-resource-admin-service-account) for more details.
 
 ##### Create GCP Service Account
 

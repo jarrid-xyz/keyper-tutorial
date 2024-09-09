@@ -1,4 +1,4 @@
-# 5. Encrypt/Decrypt
+# 5. Encrypt/Decrypt (GCP)
 
 In this step, let's use the roles and keys we created earlier to encrypt and decrypt data.
 

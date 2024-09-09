@@ -22,8 +22,8 @@ If you have any feedback throughout the tutorial or at the end, we'd also very a
 There are two ways to run this tutorial. This repo is set up to be run in [Visual Studio Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) with the [Runme](https://runme.dev/) extension.
 
 Run this in vscode with our templated devcontainer configuration. [Runme extensions](https://runme.dev/) and [Terraform](https://www.terraform.io/) will be pre-installed. You can do so by
-  
-```
+
+```sh {"id":"01J7AF3MBJ0MK9NE2K8Z089FJT"}
 git clone git@github.com:jarrid-xyz/keyper-tutorial.git
 code keyper-tutorial
 ```
@@ -32,7 +32,6 @@ You will be prompted to open the folder in devcontainer, make sure you select `R
 
 ![](devcontainer.png)
 
-
 Alternatively, you can clone this repository and [install the Runme extension](https://docs.runme.dev/installation/installrunme) separately. Note that this might require you to install additional dependencies if you don't already have them installed on your local environment.
 
 Without further ado, let's get started with the first step: ➡️ [Pulling the Keyper Docker Image](1-pull-keyper-docker-image/README.md)
@@ -40,21 +39,22 @@ Without further ado, let's get started with the first step: ➡️ [Pulling the 
 ## Table of Contents
 
 - [Keyper Tutorial](#keyper-tutorial)
-  - [Introduction](#introduction)
-  - [Questions and Feedback](#questions-and-feedback)
-  - [Getting Started](#getting-started)
-  - [Table of Contents](#table-of-contents)
-  - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
-    - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
-    - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
-    - [Encryption Key and Access Management](#encryption-key-and-access-management)
-  - [Tutorial](#tutorial)
-    - [1. Pull Keyper Docker Image](#1-pull-keyper-docker-image)
-    - [2. Create App Configuration And Credentials](#2-create-app-configuration-and-credentials)
-    - [3. Create Deployment, Role and Key](#3-create-deployment-role-and-key)
-    - [4. Deploy via Terraform](#4-deploy-via-terraform)
-    - [5. Encrypt/Decrypt](#5-encryptdecrypt)
-    - [6. Use Cases](#6-use-cases)
+   - [Introduction](#introduction)
+   - [Questions and Feedback](#questions-and-feedback)
+   - [Getting Started](#getting-started)
+   - [Table of Contents](#table-of-contents)
+   - [Data Security and Encryption Use Cases](#data-security-and-encryption-use-cases)
+      - [Whole File Encryption on Cloud Storage](#whole-file-encryption-on-cloud-storage)
+      - [Sensitive Data Value Encryption](#sensitive-data-value-encryption)
+      - [Encryption Key and Access Management](#encryption-key-and-access-management)
+
+   - [Tutorial](#tutorial)
+      - [1. Pull Keyper Docker Image](#1-pull-keyper-docker-image)
+      - [2. Create App Configuration And Credentials](#2-create-app-configuration-and-credentials)
+      - [3. Create Deployment, Role and Key](#3-create-deployment-role-and-key)
+      - [4. Deploy via Terraform](#4-deploy-via-terraform)
+      - [5. Encrypt/Decrypt](#5-encryptdecrypt)
+      - [6. Use Cases](#6-use-cases)
 
 ## Data Security and Encryption Use Cases
 
@@ -86,7 +86,8 @@ Set up the Docker environment to get started with [Keyper](https://jarrid.xyz/ke
 
 Create the necessary application configuration and credentials for [Keyper](https://jarrid.xyz/keyper).
 
-➡️ [Go to Tutorial](2-create-app-configuration-and-credentials/README.md)
+➡️ [Go to AWS Tutorial](2-create-app-configuration-and-credentials-aws/README.md)  
+➡️ [Go to GCP Tutorial](2-create-app-configuration-and-credentials-gcp/README.md)
 
 ### 3. Create Deployment, Role and Key
 
@@ -98,7 +99,8 @@ Create the deployment, role, and encryption key, and use [Keyper](https://jarrid
 
 Deploy the infrastructure using [Terraform](https://developer.hashicorp.com/terraform). [Bonus] You can easily integrate [Terraform](https://developer.hashicorp.com/terraform) into your existing CI/CD process.
 
-➡️ [Go to Tutorial](4-deploy-via-terraform/README.md)
+➡️ [Go to AWS Tutorial](4-deploy-via-terraform-aws/README.md)  
+➡️ [Go to GCP Tutorial](4-deploy-via-terraform-gcp/README.md)
 
 ### 5. Encrypt/Decrypt
 
@@ -110,6 +112,9 @@ Perform encryption and decryption operations with [Keyper](https://jarrid.xyz/ke
 
 Combine steps 1-5, we'll show you how you can handle some of the most common data security and encryption use cases with [Keyper](https://jarrid.xyz/keyper):
 
-- **Whole File Encryption on Cloud Storage**: ➡️ [Go to Tutorial](6-use-cases/6-1-whole-file-encryption-on-cloud-storage/README.md)
+- **Whole File Encryption on Cloud Storage**:
+   - ➡️ [Go to AWS Tutorial](6-use-cases/6-1-whole-file-encryption-on-cloud-storage-aws/README.md)
+   - ➡️ [Go to GCS Tutorial](6-use-cases/6-1-whole-file-encryption-on-cloud-storage-gcp/README.md)
+
 - **Sensitive Data Value Encryption**: ➡️ [Go to Tutorial](6-use-cases/6-2-sensitive-data-value-encryption/README.md)
 - **Encryption Key and Access Management**: ➡️ [Go to Tutorial](6-use-cases/6-3-encryption-key-and-access-management/README.md)

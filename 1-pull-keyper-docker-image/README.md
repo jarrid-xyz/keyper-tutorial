@@ -22,7 +22,11 @@ docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION
 
 If you can execute this successfully, [Keyper](https://jarrid.xyz/keyper) is ready for you to use.
 
-Now, let’s go to the next tutorial: ➡️ [Create App Configuration and Credentials](../2-create-app-configuration-and-credentials/README.md)
+Now, let’s go to the next tutorial:
+
+➡️ [Create App Configuration and Credentials (AWS)](../2-create-app-configuration-and-credentials-aws/README.md)
+
+➡️ [Create App Configuration and Credentials (GCP)](../2-create-app-configuration-and-credentials-gcp/README.md)
 
 ## Bonus
 
@@ -38,8 +42,4 @@ docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION
 
 ```bash {"id":"01J4HYVM8E6RF3MGJYWKVBCCYX"}
 docker run -it --rm --name keyper-cli ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} data encrypt -h
-```
-
-```bash {"id":"01J4TN5089MQCN4D8RFZXZN504"}
-
 ```
