@@ -1,5 +1,6 @@
 .vscode
 **/google-cloud-cli-linux-x86_64.tar.gz
 **/google-cloud-sdk
+**/aws
 **/**-sa-key.json
 keyper

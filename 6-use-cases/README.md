@@ -6,7 +6,8 @@ In this section, we will demonstrate how to handle some of the common data secur
 
 Encrypting files stored in cloud storage is essential for protecting sensitive data at rest. Cloud security platforms like Dig or Wiz can identify data vulnerabilities, but encrypting the files ensures that even if unauthorized access occurs, the data remains unreadable. This tutorial will show you how to encrypt files in cloud storage and even automate the process within your existing tech stack.
 
-➡️ [Go to Whole File Encryption on Cloud Storage Tutorial](6-1-whole-file-encryption-on-cloud-storage/README.md)
+➡️ [Go to Whole File Encryption on Cloud Storage Tutorial (AWS)](6-1-whole-file-encryption-on-cloud-storage-aws/README.md)  
+➡️ [Go to Whole File Encryption on Cloud Storage Tutorial (GCP)](6-1-whole-file-encryption-on-cloud-storage-gcp/README.md)
 
 ## Sensitive Data Value Encryption
 
