@@ -1,0 +1,18 @@
+name: Keyper Action (Deploy Plan)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  keyper-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Keyper Action (Deploy Plan)
+        id: keyper
+        uses: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this to your root directory of your repository
+        with:
+          args: deploy plan
