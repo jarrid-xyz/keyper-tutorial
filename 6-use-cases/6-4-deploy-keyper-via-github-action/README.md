@@ -45,7 +45,7 @@ jobs:
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy plan
-        working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
+          working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
 EOF
 ```
 
@@ -68,7 +68,7 @@ jobs:
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy apply
-        working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
+          working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
 EOF
 ```
 
