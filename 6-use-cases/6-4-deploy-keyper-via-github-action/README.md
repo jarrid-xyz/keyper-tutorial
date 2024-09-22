@@ -76,11 +76,64 @@ jobs:
 EOF
 ```
 
-```sh {"id":"01J7AF011K9J16TJ09JRF26BMT"}
+### Create Keyper Configuration
 
+In order to use [Keyper](https://jarrid.xyz/keyper) GitHub Action, we need to first create [Keyper](https://jarrid.xyz/keyper) configuration. You can find more information on the [Keyper Configuration](https://jarrid.xyz/keyper/configuration/) page or Step 2([GCP](../../2-create-app-configuration-and-credentials-gcp/README.md), [AWS](../../2-create-app-configuration-and-credentials-aws/README.md)) of this tutorial.
+
+#### GCP
+
+To create a new role and key in a GCP project, let's create a new file called `app.local.yaml`:
+
+```sh {"id":"01J8BZG51NVH7H0P1MF14QYAFP"}
+tee app.local.yaml <<EOF
+provider:
+  tfcdk:
+    stack: gcp
+  gcp:
+    accountId: <PROJECT_ID>
+    region: us-east1
+    credentials: /home/keyper/.cdktf-sa-key.json # Point to the GCP service account key JSON file
+    backend:
+      type: cloud
+resource:
+  backend:
+    backend: local
+    path: configs
+out_dir: "/home/keyper"
+EOF
 ```
 
-### Configuring the [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action)
+Note that `.cdktf-sa-key.json` is a secret, we can use [GitHub's secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) to store it. First, install [GitHub CLI](https://cli.github.com/):
+
+```sh 
+# Add the repository
+type -p curl >/dev/null || sudo apt install curl -y
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+# Update and install gh
+sudo apt update
+sudo apt install gh -y
+```
+
+Next, we can login to GitHub and store the secret. If you followed the [Keyper Deployment Setup GCP](../../2-create-app-configuration-and-credentials-gcp/README.md) tutorial, you should have a `keyper/.cdktf-sa-key.json` file. Alternatively, you can create upload your own service account key JSON file.
+
+```sh {"cwd":"../../"}
+gh auth login
+gh secret set GCP_SERVICE_ACCOUNT_KEY -b"$(cat keyper/.cdktf-sa-key.json)" # Modify the file name to use your own key
+```
+
+After created, you should see `GCP_SERVICE_ACCOUNT_KEY` in your GitHub repository's secrets:
+
+![GitHub Repository Secrets](./github-repository-secrets.png)
+
+Add the following to [`.github/workflows/keyper-ci.yml`](./.github/workflows/keyper-ci.yml) and [`.github/workflows/keyper-cd.yml`](./.github/workflows/keyper-cd.yml):
+
+```yml
+      - name: Copy GCP Service Account Key
+        run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > .cdktf-sa-key.json
+```
 
 ### Creating Roles and Keys via [Keyper Resource](https://jarrid.xyz/keyper/resource/)
 
