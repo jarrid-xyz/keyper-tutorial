@@ -38,6 +38,9 @@ on:
 jobs:
   keyper-action:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
     steps:
       - uses: actions/checkout@v4
       - name: Run Keyper Action (Deploy Plan)
@@ -45,7 +48,6 @@ jobs:
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy plan
-          working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
 EOF
 ```
 
@@ -62,13 +64,15 @@ on:
 jobs:
   keyper-action:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
     steps:
       - uses: actions/checkout@v4
       - name: Run Keyper Action (Deploy Plan)
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy apply
-          working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
 EOF
 ```
 
