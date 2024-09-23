@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  keyper-action-2:
+  keyper-action:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -21,8 +21,8 @@ jobs:
         with:
           args: resource create -t deployment
       - run: ls
-      - name: Run Keyper Action (Deploy Plan) -2
+      - name: Run Keyper Action (Deploy Plan)
         id: keyper
         uses: jarrid-xyz/keyper@v0.0.4
         with:
-          args: deploy plan -- --app "java -jar lib/build/libs/lib-main.jar"
+          args: deploy plan
