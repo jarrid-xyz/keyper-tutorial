@@ -21,7 +21,7 @@ jobs:
         with:
           args: resource create -t deployment
       - run: ls
-      - name: Run Keyper Action (Deploy Plan)
+      - name: Run Keyper Action (Deploy Plan) -2
         id: keyper
         uses: jarrid-xyz/keyper@v0.0.4
         with:
