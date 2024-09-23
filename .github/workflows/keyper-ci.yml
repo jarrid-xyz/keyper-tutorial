@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
+        working-directory: 6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
     steps:
       - uses: actions/checkout@v4
       - name: Copy GCP Service Account Key
