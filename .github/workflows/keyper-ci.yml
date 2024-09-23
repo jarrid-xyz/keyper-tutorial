@@ -20,6 +20,8 @@ jobs:
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: resource create -t deployment
+      - name: Download cdktf.json
+        run: curl -o cdktf.json https://raw.githubusercontent.com/jarrid-xyz/keyper/refs/heads/main/cdktf.json
       - name: Run Keyper Action (Deploy Plan)
         id: keyper
         uses: jarrid-xyz/keyper@v0.0.4
