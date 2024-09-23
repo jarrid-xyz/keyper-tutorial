@@ -24,4 +24,4 @@ jobs:
         id: keyper
         uses: jarrid-xyz/keyper@v0.0.4
         with:
-          args: deploy plan
+          args: deploy plan --app default

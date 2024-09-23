@@ -105,7 +105,7 @@ EOF
 
 Note that `.cdktf-sa-key.json` is a secret, we can use [GitHub's secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) to store it. First, install [GitHub CLI](https://cli.github.com/):
 
-```sh 
+```sh {"id":"01J8ECSXXH1TH043XEVTS4FZXA"}
 # Add the repository
 type -p curl >/dev/null || sudo apt install curl -y
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
@@ -119,7 +119,7 @@ sudo apt install gh -y
 
 Next, we can login to GitHub and store the secret. If you followed the [Keyper Deployment Setup GCP](../../2-create-app-configuration-and-credentials-gcp/README.md) tutorial, you should have a `keyper/.cdktf-sa-key.json` file. Alternatively, you can create upload your own service account key JSON file.
 
-```sh {"cwd":"../../"}
+```sh {"cwd":"../../","id":"01J8ECSXXH1TH043XEVYPTD0DR"}
 gh auth login
 gh secret set GCP_SERVICE_ACCOUNT_KEY -b"$(cat keyper/.cdktf-sa-key.json)" # Modify the file name to use your own key
 ```
@@ -130,12 +130,23 @@ After created, you should see `GCP_SERVICE_ACCOUNT_KEY` in your GitHub repositor
 
 Add the following to [`.github/workflows/keyper-ci.yml`](./.github/workflows/keyper-ci.yml) and [`.github/workflows/keyper-cd.yml`](./.github/workflows/keyper-cd.yml):
 
-```yml
+```yml {"id":"01J8ECSXXH1TH043XEVZP2RBBR"}
       - name: Copy GCP Service Account Key
         run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > .cdktf-sa-key.json
 ```
 
-### Creating Roles and Keys via [Keyper Resource](https://jarrid.xyz/keyper/resource/)
+### Creating Deployment,Roles and Keys via [Keyper Resource](https://jarrid.xyz/keyper/resource/)
+
+Before we can run Keyper GitHub Action, we need to create a deployment, roles and keys. You can find more information on how to create a deployment, roles and keys in [Keyper Resource](https://jarrid.xyz/keyper/resource/) page or [Step 3](../../3-create-roles-and-keys/README.md) of this tutorial.
+
+```sh {"id":"01J8ECSXXH1TH043XEW267NYZZ"}
+export KEYPER_VERSION=[Enter Keyper Version]
+docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    resource create -t deployment
+```
 
 ### Automating Whole File Encryption
 
