@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  keyper-action:
+  keyper-action-2:
     runs-on: ubuntu-latest
     defaults:
       run:
