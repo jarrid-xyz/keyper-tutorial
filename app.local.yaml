@@ -1,0 +1,14 @@
+provider:
+  tfcdk:
+    stack: gcp
+  gcp:
+    accountId: databpp
+    region: us-east1
+    credentials: /home/keyper/.cdktf-sa-key.json
+    backend:
+      type: cloud
+resource:
+  backend:
+    backend: local
+    path: configs
+out_dir: "/home/keyper"
