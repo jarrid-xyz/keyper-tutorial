@@ -31,9 +31,6 @@ on:
 jobs:
   keyper-action:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
     steps:
       - uses: actions/checkout@v4
       - name: Run Keyper Action (Deploy Plan)
