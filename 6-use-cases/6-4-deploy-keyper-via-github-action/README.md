@@ -1,21 +1,16 @@
-# 6-4. Deploy Keyper via GitHub Action
+# 6-4. Deploy Keyper via Github Action
 
-This tutorial will walk you through how to automate the creation of new roles and keys, and whole file encryption via [Keyper](https://jarrid.xyz/keyper) using [GitHub Actions](https://docs.github.com/en/actions).
+This tutorial will walk you through how to automate the creation of new roles and keys, and whole file encryption via [Keyper](https://jarrid.xyz/keyper) using [Github Actions](https://docs.github.com/en/actions).
 
-[GitHub Actions](https://docs.github.com/en/actions) is a popular CI/CD automation tool. With the [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action) we've created, you can fully automate resource creation and whole file encryption with minimal configuration. Simply define your resources and encryption tasks using [Keyper Resource](https://jarrid.xyz/keyper/resource/) or JSON configuration files, and GitHub Actions will handle the deployment for you.
-
-In this guide, we'll cover:
-
-1. [Setting Up Keyper GitHub Action in Your Repository](#setting-up-keyper-github-action-in-your-repository)
-2. [Configuring the Keyper GitHub Action](#configuring-the-keyper-github-action)
-3. [Creating Roles and Keys via Keyper Resource](#creating-roles-and-keys-via-keyper-resource)
-4. [Automating Whole File Encryption](#automating-whole-file-encryption)
+[Github Actions](https://docs.github.com/en/actions) is a popular CI/CD automation tool. With the [Keyper Github Action](https://github.com/marketplace/actions/keyper-action) we've created, you can fully automate resource creation and whole file encryption with minimal configuration. Simply define your resources and encryption tasks using [Keyper Resource](https://jarrid.xyz/keyper/resource/) or JSON configuration files, and Github Actions will handle the deployment for you.
 
 ## Steps
 
-### 1. Setting Up [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action) in Your Repository
+### 1. Setting Up [Keyper Github Action](https://github.com/marketplace/actions/keyper-action) in Your Repository
 
-We've created a [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action) to run Keyper command in [Github Action](https://docs.github.com/en/actions). Let's create `.github/workflows` directory:
+We've created a [Keyper Github Action](https://github.com/marketplace/actions/keyper-action) to run [Keyper](https://jarrid.xyz/keyper) commands in [Github Action](https://docs.github.com/en/actions).
+
+To use it, create `.github/workflows` directory:
 
 ```sh {"cwd":"../../","id":"01J89JFBT83EN3MEZR8M5YCT0R"}
 mkdir -p .github/workflows
@@ -51,17 +46,17 @@ jobs:
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy apply
-        if: {{ github.ref == 'refs/heads/main' }} # Only run if merge to main
+        if: github.ref == 'refs/heads/main' # Only run if merge to main
 EOF
 ```
 
-### Create Keyper Configuration
+### 2. Create Keyper Configuration
 
-In order to use [Keyper](https://jarrid.xyz/keyper) GitHub Action, we need to first create [Keyper](https://jarrid.xyz/keyper) configuration. You can find more information on the [Keyper Configuration](https://jarrid.xyz/keyper/configuration/) page or Step 2([GCP](../../2-create-app-configuration-and-credentials-gcp/README.md), [AWS](../../2-create-app-configuration-and-credentials-aws/README.md)) of this tutorial.
+To use [Keyper](https://jarrid.xyz/keyper), we need to first create [Keyper configuration](https://jarrid.xyz/keyper/configuration/). For the step by step guide, see Step 2 for [GCP](../../2-create-app-configuration-and-credentials-gcp/README.md) or [AWS](../../2-create-app-configuration-and-credentials-aws/README.md). We'll use GCP in this example.
 
 #### GCP
 
-To create a new role and key in a GCP project, let's create a new file called `app.local.yaml`:
+To configure Keyper to deploy to GCP, let's create a new file called `app.local.yaml`:
 
 ```sh {"cwd":"../../","id":"01J8BZG51NVH7H0P1MF14QYAFP"}
 tee app.local.yaml <<EOF
@@ -71,7 +66,7 @@ provider:
   gcp:
     accountId: <PROJECT_ID>
     region: us-east1
-    credentials: /home/keyper/.cdktf-sa-key.json # Point to the GCP service account key JSON file
+    credentials: /github/workspace/.cdktf-sa-key.json # Point to the GCP service account key JSON file
     backend:
       type: cloud
 resource:
@@ -82,7 +77,9 @@ out_dir: "/home/keyper"
 EOF
 ```
 
-Note that `.cdktf-sa-key.json` is a secret, we can use [GitHub's secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) to store it. First, install [GitHub CLI](https://cli.github.com/):
+Note that `.cdktf-sa-key.json` is a secret. We can store the secret in [Github's secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) and fetch it in the github action workflow.
+
+You can create the secret in the Github repository settings or use [Github CLI](https://cli.github.com/). In this tutorial, we'll use Github CLI. First, install [Github CLI](https://cli.github.com/):
 
 ```sh {"id":"01J8ECSXXH1TH043XEVTS4FZXA"}
 # Add the repository
@@ -96,27 +93,27 @@ sudo apt update
 sudo apt install gh -y
 ```
 
-Next, we can login to GitHub and store the secret. If you followed the [Keyper Deployment Setup GCP](../../2-create-app-configuration-and-credentials-gcp/README.md) tutorial, you should have a `keyper/.cdktf-sa-key.json` file. Alternatively, you can create upload your own service account key JSON file.
+Login to Github and store the secret. You can follow the steps in [2. Create App Configuration and Credentials (GCP)](../../2-create-app-configuration-and-credentials-gcp/README.md) to create a `keyper/.cdktf-sa-key.json`. Alternatively, you can create and upload your own service account key json file.
 
 ```sh {"cwd":"../../","id":"01J8ECSXXH1TH043XEVYPTD0DR"}
 gh auth login
 gh secret set GCP_SERVICE_ACCOUNT_KEY -b"$(cat keyper/.cdktf-sa-key.json)" # Modify the file name to use your own key
 ```
 
-After created, you should see `GCP_SERVICE_ACCOUNT_KEY` in your GitHub repository's secrets:
+After created, you should see `GCP_SERVICE_ACCOUNT_KEY` in your Github repository's secrets:
 
-![GitHub Repository Secrets](./github-repository-secrets.png)
+![Github Repository Secrets](./github-repository-secrets.png)
 
-Add the following to [`.github/workflows/keyper-ci.yml`](./.github/workflows/keyper-ci.yml) and [`.github/workflows/keyper-cd.yml`](./.github/workflows/keyper-cd.yml):
+Add the following step to [`.github/workflows/keyper-cicd.yml`](../../.github/workflows/keyper-cicd.yml) to fetch the secret to the github action workflow:
 
 ```yml {"id":"01J8ECSXXH1TH043XEVZP2RBBR"}
       - name: Copy GCP Service Account Key
         run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > .cdktf-sa-key.json
 ```
 
-### Creating Deployment, Roles and Keys via [Keyper Resource](https://jarrid.xyz/keyper/resource/)
+### 3. Creating Deployment, Roles and Keys with [Keyper Resource](https://jarrid.xyz/keyper/resource/)
 
-Before we can run Keyper GitHub Action, we need to create a deployment, roles and keys. You can find more information on how to create a deployment, roles and keys in [Keyper Resource](https://jarrid.xyz/keyper/resource/) page or [Step 3](../../3-create-roles-and-keys/README.md) of this tutorial.
+Before we can run Keyper Github Action, we need to create a deployment, roles and keys. You can find more information on how to create a deployment, roles and keys in [Keyper Resource](https://jarrid.xyz/keyper/resource/) page or [Step 3](../../3-create-roles-and-keys/README.md) of this tutorial.
 
 ```sh {"cwd":"../../","id":"01J8ECSXXH1TH043XEW267NYZZ"}
 export KEYPER_VERSION=[Enter Keyper Version]
@@ -127,33 +124,53 @@ docker run -it --rm --name keyper-cli \
     resource create -t deployment
 ```
 
-Next, let's create a new role and key:
+Create a new key and role:
 
 ```sh {"cwd":"../../","id":"01J8H350YAW5W5GQ4DFM9HEYXT"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
-    resource create -t key -n key1
+    resource create -t key
 ```
 
-```sh {"id":"01J8H350YAW5W5GQ4DFNHSS3RG"}
+```sh {"cwd":"../../", "id":"01J8H350YAW5W5GQ4DFNHSS3RG"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
     resource create -t role -n user1
+```
 
+Allow role to encrypt anddecrypt with key:
+
+```sh {"cwd":"../../"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
-    resource create -k role -n user1
+    resource key -k "f09ad808-6a28-4a7c-8ddf-a83206e1c0aa" -o ADD_ALLOW_DECRYPT -r user1
+
+    docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    resource key -k "f09ad808-6a28-4a7c-8ddf-a83206e1c0aa" -o ADD_ALLOW_ENCRYPT -r user1
+```
+
+Note, you can find the key id by running:
+
+```sh {"cwd":"../../"}
+docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    resource list -t key
 ```
 
 #### Push to Github
 
-Now, let's add the `app.local.yaml` and `configs` directory to our repository so that `keyper-ci.yml` and `keyper-cd.yml` can use them.
+Add the `app.local.yaml` and `configs` directory to our repository so that `keyper-cicd.yml` can use them. Note, github action mount `github/workspace` directory to the container, so we will need to modify `out_dir: "/home/keyper"` in `app.local.yaml` to `out_dir: "/github/workspace"`
 
 ```sh {"cwd":"../../","id":"01J8H350YAW5W5GQ4DFPZ0P6YA"}
 git add app.local.yaml configs
@@ -161,6 +178,6 @@ git commit -m "Add Keyper configuration"
 git push
 ```
 
-### Automating Whole File Encryption
+### 4. Automating Whole File Encryption
 
 ➡️ [Back to Use Cases](../README.md)
