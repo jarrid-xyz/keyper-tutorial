@@ -18,6 +18,7 @@ jobs:
         run: echo $GCP_SERVICE_ACCOUNT_KEY > .cdktf-sa-key.json
         env:
           GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+      - run: ls -la
       - name: Run Keyper Action (Deploy Plan)
         id: keyper-plan
         uses: jarrid-xyz/keyper@v0.0.4
