@@ -107,8 +107,10 @@ After created, you should see `GCP_SERVICE_ACCOUNT_KEY` in your Github repositor
 Add the following step to [`.github/workflows/keyper-cicd.yml`](../../.github/workflows/keyper-cicd.yml) to fetch the secret to the github action workflow:
 
 ```yml {"id":"01J8ECSXXH1TH043XEVZP2RBBR"}
-      - name: Copy GCP Service Account Key
-        run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > /github/workspace/.cdktf-sa-key.json
+      - name: Fetch GCP Service Account Key
+        run: echo $GCP_SERVICE_ACCOUNT_KEY > .cdktf-sa-key.json
+        env:
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
 ```
 
 ### 3. Creating Deployment, Roles and Keys with [Keyper Resource](https://jarrid.xyz/keyper/resource/)
