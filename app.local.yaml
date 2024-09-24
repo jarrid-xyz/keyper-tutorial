@@ -11,4 +11,4 @@ resource:
   backend:
     backend: local
     path: configs
-out_dir: "/githu/workspace"
+out_dir: "/github/workspace"
