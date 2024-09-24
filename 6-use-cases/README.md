@@ -15,6 +15,12 @@ Encrypting individual data values is vital for protecting sensitive information 
 
 ➡️ [Go to Sensitive Data Value Encryption Tutorial](6-2-sensitive-data-value-encryption/README.md)
 
+## Deploy Keyper via Github Action
+
+Automating [Keyper](https://jarrid.xyz/keyper) deployment using [Keyper GitHub Actions](https://github.com/marketplace/actions/keyper-action) simplifies resource creation and management. This tutorial walks you through setting up the [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action) to deploy roles and keys without writing any code. Non-technical users can create and manage Keyper roles and key permissions using JSON, commit and push to the repository, and the GitHub Action will handle the deployment automatically.
+
+➡️ [Go to Deploy Keyper via Github Action](6-4-deploy-keyper-via-github-action/README.md)
+
 ## Encryption Key and Access Management - [WIP]
 
 Simplifying access control across data platforms and infrastructure is critical for maintaining security and compliance. Instead of creating row/column-level permissions for each data store or platform individually, you can use encryption keys managed by [Keyper](https://jarrid.xyz/keyper) to control access. This approach streamlines the management of permissions and integrates seamlessly with IAM roles, reducing the complexity and potential for errors.

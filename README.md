@@ -118,3 +118,5 @@ Combine steps 1-5, we'll show you how you can handle some of the most common dat
 
 - **Sensitive Data Value Encryption**: ➡️ [Go to Tutorial](6-use-cases/6-2-sensitive-data-value-encryption/README.md)
 - **Encryption Key and Access Management**: ➡️ [Go to Tutorial](6-use-cases/6-3-encryption-key-and-access-management/README.md)
+
+- **Deploy Keyper via Github Action**: ➡️ [Go to Tutorial](6-use-cases/6-4-deploy-keyper-via-github-action/README.md)

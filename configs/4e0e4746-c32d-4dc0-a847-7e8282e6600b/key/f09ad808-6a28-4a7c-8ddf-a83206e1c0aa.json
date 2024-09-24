@@ -1,0 +1,1 @@
+{"base":{"created":"2024-09-24T04:47:11.742864712Z","updated":"2024-09-24T04:58:44.426569463Z","id":"f09ad808-6a28-4a7c-8ddf-a83206e1c0aa","name":null,"context":null},"type":"KEY","ttl":7,"rotationPeriod":"7776000s","rotationPeriodDays":90,"permission":{"allowEncrypt":["keyper-user-1"],"allowDecrypt":["keyper-user-1"]}}

@@ -55,7 +55,7 @@ aws configure
 Next, let's create a role to run [Terraform](https://www.terraform.io/) for this tutorial.
 
 ```bash {"id":"01J79MFQK0VDDJMWNH30WF3TGE"}
-tee -a assume-role-policy.json <<EOF
+tee assume-role-policy.json <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -95,7 +95,7 @@ aws iam create-role \
 Next, let's add KMS and IAM admin permission to the role so it has the permission to create/destroy service accounts and keys.
 
 ```bash {"id":"01J79Q90W3NFS1B319T4TG3KKZ"}
-tee -a kms-policy.json <<EOF
+tee kms-policy.json <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -129,7 +129,7 @@ aws iam attach-role-policy \
 In this tutorial, as this container is shortlived, we will be using remote backend. We add S3 permission to the role so that the role can manage [Terraform's remote backend](https://developer.hashicorp.com/terraform/language/settings/backends/remote).
 
 ```bash {"id":"01J79QS1NFH8713YVK7E9BM0BY"}
-tee -a s3-policy.json <<EOF
+tee s3-policy.json <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
