@@ -177,6 +177,6 @@ git commit -m "Add Keyper configuration"
 git push
 ```
 
-### 4. Automating Whole File Encryption
+If github aciont run sucessfully, you should see a full terraform plan in the github action log.
 
 ➡️ [Back to Use Cases](../README.md)
