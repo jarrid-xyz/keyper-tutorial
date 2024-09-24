@@ -6,18 +6,16 @@ This tutorial will walk you through how to automate the creation of new roles an
 
 In this guide, we'll cover:
 
-1. Setting up [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action) in your repository
-2. Configuring the [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action)
-3. Creating roles and keys via [Keyper Resource](https://jarrid.xyz/keyper/resource/)
-4. Automating whole file encryption
-
-Without further ado, let's get started!
+1. [Setting Up Keyper GitHub Action in Your Repository](#setting-up-keyper-github-action-in-your-repository)
+2. [Configuring the Keyper GitHub Action](#configuring-the-keyper-github-action)
+3. [Creating Roles and Keys via Keyper Resource](#creating-roles-and-keys-via-keyper-resource)
+4. [Automating Whole File Encryption](#automating-whole-file-encryption)
 
 ## Steps
 
-### Setting Up [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action) in Your Repository
+### 1. Setting Up [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action) in Your Repository
 
-Github actions are defined in the `.github/workflows` directory. Let's create a new directory and file for our Github action.
+We've created a [Keyper GitHub Action](https://github.com/marketplace/actions/keyper-action) to run Keyper command in [Github Action](https://docs.github.com/en/actions). Let's create `.github/workflows` directory:
 
 ```sh {"cwd":"../../","id":"01J89JFBT83EN3MEZR8M5YCT0R"}
 mkdir -p .github/workflows
@@ -26,8 +24,8 @@ mkdir -p .github/workflows
 Create a new github action file called `keyper-ci.yml`. This will trigger Keyper to create a plan both on merge and PR to the main branch.
 
 ```sh {"cwd":"../../","id":"01J8BNZXMK7R6QX1XSZJGBW294"}
-tee .github/workflows/keyper-ci.yml <<EOF
-name: Keyper Action (Deploy Plan)
+tee .github/workflows/keyper-cicd.yml <<EOF
+name: Keyper Action (Deploy Plan/Apply)
 
 on:
   push:
@@ -44,35 +42,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Keyper Action (Deploy Plan)
-        id: keyper
+        id: keyper-plan
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy plan
-EOF
-```
-
-Create a new github action file called `keyper-cd.yml`. This will trigger Keyper to apply the plan when merging PR to the main branch.
-
-```sh {"cwd":"../../","id":"01J8BNZXMK7R6QX1XSZNPXEH1B"}
-tee .github/workflows/keyper-cd.yml <<EOF
-name: Keyper Action (Deploy Apply)
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  keyper-action:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run Keyper Action (Deploy Plan)
+      - name: Run Keyper Action (Deploy Apply)
+        id: keyper-apply
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy apply
+        if: {{ github.ref == 'refs/heads/main' }} # Only run if merge to main
 EOF
 ```
 
@@ -135,7 +114,7 @@ Add the following to [`.github/workflows/keyper-ci.yml`](./.github/workflows/key
         run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > .cdktf-sa-key.json
 ```
 
-### Creating Deployment,Roles and Keys via [Keyper Resource](https://jarrid.xyz/keyper/resource/)
+### Creating Deployment, Roles and Keys via [Keyper Resource](https://jarrid.xyz/keyper/resource/)
 
 Before we can run Keyper GitHub Action, we need to create a deployment, roles and keys. You can find more information on how to create a deployment, roles and keys in [Keyper Resource](https://jarrid.xyz/keyper/resource/) page or [Step 3](../../3-create-roles-and-keys/README.md) of this tutorial.
 
@@ -148,11 +127,35 @@ docker run -it --rm --name keyper-cli \
     resource create -t deployment
 ```
 
+Next, let's create a new role and key:
+
+```sh {"cwd":"../../","id":"01J8H350YAW5W5GQ4DFM9HEYXT"}
+docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    resource create -t key -n key1
+```
+
+```sh {"id":"01J8H350YAW5W5GQ4DFNHSS3RG"}
+docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    resource create -t role -n user1
+
+docker run -it --rm --name keyper-cli \
+    -v ./configs:/home/keyper/configs \
+    -v ./app.local.yaml:/home/keyper/app.local.yaml \
+    ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
+    resource create -k role -n user1
+```
+
 #### Push to Github
 
 Now, let's add the `app.local.yaml` and `configs` directory to our repository so that `keyper-ci.yml` and `keyper-cd.yml` can use them.
 
-```sh {"cwd":"../../"}
+```sh {"cwd":"../../","id":"01J8H350YAW5W5GQ4DFPZ0P6YA"}
 git add app.local.yaml configs
 git commit -m "Add Keyper configuration"
 git push

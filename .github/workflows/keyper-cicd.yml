@@ -1,20 +1,27 @@
-name: Keyper Action (Deploy Apply)
+name: Keyper Action (Deploy Plan/Apply)
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  keyper-apply:
+  keyper-action:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./6-use-cases/6-4-deploy-keyper-via-github-action/ # modify this
     steps:
       - uses: actions/checkout@v4
-      - name: Copy GCP Service Account Key
-        run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > .cdktf-sa-key.json
       - name: Run Keyper Action (Deploy Plan)
+        id: keyper-plan
+        uses: jarrid-xyz/keyper@v0.0.4
+        with:
+          args: deploy plan
+      - name: Run Keyper Action (Deploy Apply)
+        id: keyper-apply
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy apply
+        if: {{ github.ref == 'refs/heads/main' }} # Only run if merge to main
