@@ -179,4 +179,6 @@ git push
 
 If github aciont run sucessfully, you should see a full terraform plan in the github action log.
 
+That's it! To add roles and keys, all you have to do is to repeat the same command in [Step 3](#3-creating-deployment-roles-and-keys-with-keyper-resource) and github action will take care of the terraform plan (to validate resources) and apply (to deploy resources).
+
 ➡️ [Back to Use Cases](../README.md)
