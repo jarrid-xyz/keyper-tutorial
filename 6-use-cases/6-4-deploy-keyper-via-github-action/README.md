@@ -90,7 +90,7 @@ sudo apt update
 sudo apt install gh -y
 ```
 
-Login to Github and store the secret. You can follow the steps in [2. Create App Configuration and Credentials (GCP)](../../2-create-app-configuration-and-credentials-gcp/README.md) to create a `keyper/.cdktf-sa-key.json`. Alternatively, you can create and upload your own service account key json file.
+Login to Github and store the secret. You can follow the steps in [2. Create App Configuration and Credentials (GCP)](../../2-create-app-configuration-and-credentials-gcp/README.md) to create a `keyper/.cdktf-sa-key.json`. Alternatively, you can create and upload your own service account key JSON file.
 
 ```sh {"cwd":"../../","id":"01J8ECSXXH1TH043XEVYPTD0DR"}
 gh auth login
@@ -133,7 +133,7 @@ docker run -it --rm --name keyper-cli \
     resource create -t key
 ```
 
-```sh {"cwd":"../../", "id":"01J8H350YAW5W5GQ4DFNHSS3RG"}
+```sh {"cwd":"../../","id":"01J8H350YAW5W5GQ4DFNHSS3RG"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
@@ -143,7 +143,7 @@ docker run -it --rm --name keyper-cli \
 
 Allow role to encrypt anddecrypt with key:
 
-```sh {"cwd":"../../"}
+```sh {"cwd":"../../","id":"01J8H95BXECQY44GT9BMXNEPJC"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
@@ -159,7 +159,7 @@ docker run -it --rm --name keyper-cli \
 
 Note, you can find the key id by running:
 
-```sh {"cwd":"../../"}
+```sh {"cwd":"../../","id":"01J8H95BXECQY44GT9BQ81CKB8"}
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
