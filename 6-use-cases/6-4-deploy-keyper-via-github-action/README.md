@@ -148,6 +148,16 @@ docker run -it --rm --name keyper-cli \
     resource create -t deployment
 ```
 
+#### Push to Github
+
+Now, let's add the `app.local.yaml` and `configs` directory to our repository so that `keyper-ci.yml` and `keyper-cd.yml` can use them.
+
+```sh {"cwd":"../../"}
+git add app.local.yaml configs
+git commit -m "Add Keyper configuration"
+git push
+```
+
 ### Automating Whole File Encryption
 
 ➡️ [Back to Use Cases](../README.md)

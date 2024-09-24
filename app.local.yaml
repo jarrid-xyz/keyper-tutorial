@@ -11,4 +11,4 @@ resource:
   backend:
     backend: local
     path: configs
-out_dir: "/home/keyper"
+out_dir: "/githu/workspace"
