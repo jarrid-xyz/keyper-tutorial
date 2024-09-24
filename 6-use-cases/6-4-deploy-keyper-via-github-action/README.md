@@ -97,7 +97,7 @@ Login to Github and store the secret. You can follow the steps in [2. Create App
 
 ```sh {"cwd":"../../","id":"01J8ECSXXH1TH043XEVYPTD0DR"}
 gh auth login
-gh secret set GCP_SERVICE_ACCOUNT_KEY -b"$(cat keyper/.cdktf-sa-key.json)" # Modify the file name to use your own key
+gh secret set GCP_SERVICE_ACCOUNT_KEY < keyper/.cdktf-sa-key.json # Modify the file path to use your own key
 ```
 
 After created, you should see `GCP_SERVICE_ACCOUNT_KEY` in your Github repository's secrets:
@@ -108,7 +108,7 @@ Add the following step to [`.github/workflows/keyper-cicd.yml`](../../.github/wo
 
 ```yml {"id":"01J8ECSXXH1TH043XEVZP2RBBR"}
       - name: Copy GCP Service Account Key
-        run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > .cdktf-sa-key.json
+        run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > /github/workspace/.cdktf-sa-key.json
 ```
 
 ### 3. Creating Deployment, Roles and Keys with [Keyper Resource](https://jarrid.xyz/keyper/resource/)
