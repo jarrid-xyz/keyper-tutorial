@@ -16,7 +16,7 @@ To use it, create `.github/workflows` directory:
 mkdir -p .github/workflows
 ```
 
-Create a new github action file called `keyper-ci.yml`. This will trigger Keyper to create a plan both on merge and PR to the main branch.
+Create a new github action file called `keyper-cicd.yml`. This will trigger Keyper to run terraform plan on PRs and terraform apply on merge to main.
 
 ```sh {"cwd":"../../","id":"01J8BNZXMK7R6QX1XSZJGBW294"}
 tee .github/workflows/keyper-cicd.yml <<EOF
@@ -43,7 +43,7 @@ jobs:
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy apply
-        if: github.ref == 'refs/heads/main' # Only run if merge to main
+        if: github.ref == 'refs/heads/main' # Only run if on main
 EOF
 ```
 
@@ -112,7 +112,7 @@ Add the following step to [`.github/workflows/keyper-cicd.yml`](../../.github/wo
 
 ### 3. Creating Deployment, Roles and Keys with [Keyper Resource](https://jarrid.xyz/keyper/resource/)
 
-Before we can run Keyper Github Action, we need to create a deployment, roles and keys. You can find more information on how to create a deployment, roles and keys in [Keyper Resource](https://jarrid.xyz/keyper/resource/) page or [Step 3](../../3-create-roles-and-keys/README.md) of this tutorial.
+Before we can run Keyper Github Action, we need to create a deployment, roles and keys. You can find more information on how to create a deployment, roles and keys in [Keyper Resource](https://jarrid.xyz/keyper/resource/) page or [Step 3](../../3-create-deployment-role-and-key/README.md) of this tutorial.
 
 ```sh {"cwd":"../../","id":"01J8ECSXXH1TH043XEW267NYZZ"}
 export KEYPER_VERSION=[Enter Keyper Version]
