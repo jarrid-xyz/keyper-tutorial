@@ -181,4 +181,6 @@ If github aciont run sucessfully, you should see a full terraform plan in the gi
 
 That's it! To add roles and keys, all you have to do is to repeat the same command in [Step 3](#3-creating-deployment-roles-and-keys-with-keyper-resource) and github action will take care of the terraform plan (to validate resources) and apply (to deploy resources).
 
+Keep in mind that cloud resources will be created and incur cloud cost in your GCP project. We've added a `.github/workflows/keyper-destroy.yml` to destroy resources after the exercise. You can trigger it by going to the github action tab and clicking `Run workflow`.
+
 ➡️ [Back to Use Cases](../README.md)
