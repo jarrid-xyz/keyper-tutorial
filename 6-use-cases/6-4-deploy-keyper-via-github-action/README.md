@@ -84,7 +84,7 @@ In order to use [Keyper](https://jarrid.xyz/keyper) GitHub Action, we need to fi
 
 To create a new role and key in a GCP project, let's create a new file called `app.local.yaml`:
 
-```sh {"id":"01J8BZG51NVH7H0P1MF14QYAFP"}
+```sh {"cwd":"../../","id":"01J8BZG51NVH7H0P1MF14QYAFP"}
 tee app.local.yaml <<EOF
 provider:
   tfcdk:
@@ -139,7 +139,7 @@ Add the following to [`.github/workflows/keyper-ci.yml`](./.github/workflows/key
 
 Before we can run Keyper GitHub Action, we need to create a deployment, roles and keys. You can find more information on how to create a deployment, roles and keys in [Keyper Resource](https://jarrid.xyz/keyper/resource/) page or [Step 3](../../3-create-roles-and-keys/README.md) of this tutorial.
 
-```sh {"id":"01J8ECSXXH1TH043XEW267NYZZ"}
+```sh {"cwd":"../../","id":"01J8ECSXXH1TH043XEW267NYZZ"}
 export KEYPER_VERSION=[Enter Keyper Version]
 docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \

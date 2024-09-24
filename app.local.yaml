@@ -2,9 +2,9 @@ provider:
   tfcdk:
     stack: gcp
   gcp:
-    accountId: databpp
+    accountId: <PROJECT_ID>
     region: us-east1
-    credentials: /home/keyper/.cdktf-sa-key.json
+    credentials: /home/keyper/.cdktf-sa-key.json # Point to the GCP service account key JSON file
     backend:
       type: cloud
 resource:

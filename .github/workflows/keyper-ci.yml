@@ -13,7 +13,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Copy GCP Service Account Key
         run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > .cdktf-sa-key.json
-      - run: cd 6-use-cases/6-4-deploy-keyper-via-github-action # Change directory to the tutorial example, modify this per your repo or project's setup
       - name: Run Keyper Action (Deploy Plan)
         id: keyper
         uses: jarrid-xyz/keyper@v0.0.4
