@@ -61,7 +61,7 @@ provider:
   tfcdk:
     stack: gcp
   gcp:
-    accountId: <PROJECT_ID>
+    accountId: <PROJECT_ID> # Replace this with your project id
     region: us-east1
     credentials: /github/workspace/.cdktf-sa-key.json # Point to the GCP service account key JSON file
     backend:
@@ -138,7 +138,7 @@ docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
-    resource create -t role -n user1
+    resource create -t role -n keyper-user-1
 ```
 
 Allow role to encrypt anddecrypt with key:
@@ -148,13 +148,13 @@ docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
-    resource key -k "f09ad808-6a28-4a7c-8ddf-a83206e1c0aa" -o ADD_ALLOW_DECRYPT -r user1
+    resource key -k "f09ad808-6a28-4a7c-8ddf-a83206e1c0aa" -o ADD_ALLOW_DECRYPT -r keyper-user-1
 
     docker run -it --rm --name keyper-cli \
     -v ./configs:/home/keyper/configs \
     -v ./app.local.yaml:/home/keyper/app.local.yaml \
     ghcr.io/jarrid-xyz/keyper:${KEYPER_VERSION} \
-    resource key -k "f09ad808-6a28-4a7c-8ddf-a83206e1c0aa" -o ADD_ALLOW_ENCRYPT -r user1
+    resource key -k "f09ad808-6a28-4a7c-8ddf-a83206e1c0aa" -o ADD_ALLOW_ENCRYPT -r keyper-user-1
 ```
 
 Note, you can find the key id by running:
