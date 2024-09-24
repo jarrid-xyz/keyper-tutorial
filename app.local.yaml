@@ -6,7 +6,6 @@ provider:
     region: us-east1
     credentials: /github/workspace/.cdktf-sa-key.json # Point to the GCP service account key JSON file
     backend:
-      path: keyper-tutorial
       type: cloud
 resource:
   backend:
