@@ -24,4 +24,4 @@ jobs:
         uses: jarrid-xyz/keyper@v0.0.4
         with:
           args: deploy apply
-        if: {{ github.ref == 'refs/heads/main' }} # Only run if merge to main
+        if: github.ref == 'refs/heads/main' # Only run if merge to main
