@@ -4,11 +4,11 @@ provider:
   gcp:
     accountId: databoo
     region: us-east1
-    credentials: /github/workspace/.cdktf-sa-key.json # Point to the GCP service account key JSON file
+    credentials: /home/keyper/.cdktf-sa-key.json # Point to the GCP service account key JSON file
     backend:
       type: cloud
 resource:
   backend:
     backend: local
     path: configs
-out_dir: "/github/workspace"
+out_dir: "/home/keyper"
